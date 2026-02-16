@@ -5,7 +5,7 @@ export interface ApiInfo {
   prev: string | null;
 }
 
-export interface ApiResponse<T> {
+export interface APIResponseType<T> {
   info: ApiInfo;
   results: T[];
 }
