@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+
+import { NAV_ITEMS } from '@/src/constants/navigationItems';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,22 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header>
+          <h1>hello</h1>
+          <nav>
+            <ul>
+              {NAV_ITEMS.map((navItem) => {
+                return(
+                  <li key={navItem.href}>
+                    <Link href={navItem.href}>{navItem.label}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </header>
+        <main>{children}</main>
+        <footer>My project 2026</footer>
       </body>
     </html>
   );
