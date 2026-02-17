@@ -1,6 +1,6 @@
-import { getCharacters } from '@/src/lib/api'
-import { CharacterType } from "@/src/types";
 import Link from 'next/link';
+
+import { getCharacters } from '@/src/lib/api'
 
 export default async function Home() {
   const charactersFromAPI = await getCharacters();
