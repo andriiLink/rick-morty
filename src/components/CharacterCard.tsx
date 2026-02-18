@@ -8,6 +8,11 @@ type Props = {
 
 const CharacterCard: React.FC<Props> = ({ chatacter }) => {
   const altValue = chatacter.name + ' image';
+  const statusStyles = {
+    Alive: 'bg-green-500',
+    Dead: 'bg-red-500',
+    unknown: 'bg-gray-500',
+  };
 
   return (
     <div className='w-60 border-4 border-blue-500 rounded-2xl object-cover overflow-hidden'>
@@ -17,7 +22,7 @@ const CharacterCard: React.FC<Props> = ({ chatacter }) => {
         height={250}
         width={250}
       />
-      <div className='bg-green-500 flex justify-center text-white font-bold mb-2'>
+      <div className={`${statusStyles[chatacter.status]} flex justify-center text-white font-bold mb-2`}>
         {chatacter.status}
       </div>
 
