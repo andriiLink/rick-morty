@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { getCharacters } from '@/src/lib/api'
+import CharacterCard from '@/src/components/CharacterCard';
 
 export default async function Home() {
   const charactersFromAPI = await getCharacters();
@@ -18,13 +19,13 @@ export default async function Home() {
   return (
     <div>
       {
-        charactersFromAPI.results.map((item) => {
+        charactersFromAPI.results.map((chatacter) => {
           return (
             <Link 
-              key={item.id}
-              href={`/characters/${item.id}`}
+              key={chatacter.id}
+              href={`/characters/${chatacter.id}`}
             >
-              {item.name}
+              <CharacterCard chatacter={chatacter} />
             </Link>
           );
         })
