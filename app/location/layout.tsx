@@ -3,7 +3,7 @@ import { getLocations } from '@/src/lib/api';
 
 const LocationLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
   const loctionListFromAPI = await getLocations();
-  const locations = loctionListFromAPI?.results || [];
+  const locations = loctionListFromAPI || [];
   const locaitonList = locations.map((location) => {
     return (
       {
