@@ -1,9 +1,9 @@
-import { EpisodeSelectorDropdown } from '@/src/components/EpisodeSelectorDropdown';
+import { ItemSelectorDropdown } from '@/src/components/ItemSelectorDropdown';
 import { getEpisodes } from '@/src/lib/api';
 
 const EpisodeLayout = async ({ children }: Readonly<{ children: React.ReactNode }>) => {
-  const episodeListInfoFromAPI = await getEpisodes();
-  const episodes = episodeListInfoFromAPI?.results || [];
+  const episodeListFromAPI = await getEpisodes();
+  const episodes = episodeListFromAPI?.results || [];
   const episodeList = episodes.map((episode) => {
     return (
       {
@@ -15,7 +15,12 @@ const EpisodeLayout = async ({ children }: Readonly<{ children: React.ReactNode 
 
   return (
     <div>
-      <EpisodeSelectorDropdown episodeList={episodeList} />
+      <ItemSelectorDropdown 
+        itemList={episodeList} 
+        routerDirection='episode'
+        paramName='episodeId'
+        label='select the episode'
+      />
       {children}
     </div>
   );
