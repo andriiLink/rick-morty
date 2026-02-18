@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 
 import { NAV_ITEMS } from '@/src/constants/navigationItems';
+import NavBar from "@/src/components/NavBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,19 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header>
-          <h1>hello</h1>
-          <nav>
-            <ul>
-              {NAV_ITEMS.map((navItem) => {
-                return(
-                  <li key={navItem.href}>
-                    <Link href={navItem.href}>{navItem.label}</Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+        <header className="bg-blue-500 flex justify-between items-center">
+          <Link href={'/'} className="text-white text-3xl font-bold mx-4">Rick & Morty Wiki</Link>
+          <NavBar />
         </header>
         <main>{children}</main>
         <footer>My project 2026</footer>
@@ -50,3 +41,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+//truncate
