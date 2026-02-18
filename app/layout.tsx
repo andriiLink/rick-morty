@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
-import { NAV_ITEMS } from '@/src/constants/navigationItems';
 import NavBar from "@/src/components/NavBar";
 
 const geistSans = Geist({
@@ -29,13 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <header className="bg-blue-500 flex justify-between items-center">
           <Link href={'/'} className="text-white text-3xl font-bold mx-4">Rick & Morty Wiki</Link>
           <NavBar />
         </header>
-        <main>{children}</main>
+
+        <main>
+          {children}
+        </main>
+
         <footer>My project 2026</footer>
       </body>
     </html>

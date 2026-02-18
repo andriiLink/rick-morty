@@ -4,12 +4,17 @@ import { NAV_ITEMS } from "../constants/navigationItems";
 
 const NavBar = () => {
   return (
-    <nav className="mx-4">
-      <ul>
+    <nav className="mx-8 h-20 flex items-center">
+      <ul className="flex flex-row gap-6 justify-center">
         {NAV_ITEMS.map((navItem) => {
           return (
             <li key={navItem.href}>
-              <Link href={navItem.href}>{navItem.label}</Link>
+              <Link 
+                href={navItem.href}
+                className="text-white font-semibold text-xl"
+              >
+                {navItem.label}
+              </Link>
             </li>
           );
         })}
