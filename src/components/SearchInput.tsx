@@ -1,5 +1,7 @@
 "use client";
 
+import { useDebouncedCallback } from 'use-debounce';
+
 type Params = {
   labelText: string,
 };
