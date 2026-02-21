@@ -18,7 +18,13 @@ async function fetchData<T>(endpoint: string): Promise<T | null> {
   }
 };
 
-export async function getCharacters(page = 1, name = '', status = ''): Promise<APIResponseType<CharacterType> | null> {
+export async function getCharacters(
+  page = 1, 
+  name = '', 
+  status = '',
+  species = '',
+  gender = '',
+  ): Promise<APIResponseType<CharacterType> | null> {
   let characterEndpoint = `character/?page=${page}`;
 
   if (name) {
@@ -27,6 +33,14 @@ export async function getCharacters(page = 1, name = '', status = ''): Promise<A
 
   if (status) {
     characterEndpoint += `&status=${status}`;
+  }
+
+  if (species) {
+    characterEndpoint += `&species=${species}`;
+  }
+
+  if (gender) {
+    characterEndpoint += `&gender=${gender}`;
   }
 
   return fetchData<APIResponseType<CharacterType>>(characterEndpoint);
