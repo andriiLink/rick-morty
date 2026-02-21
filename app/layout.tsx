@@ -35,7 +35,7 @@ export default function RootLayout({
           <NavBar />
         </header>
 
-        <main className="flex flex-grow">
+        <main>
           {children}
         </main>
 
@@ -45,4 +45,6 @@ export default function RootLayout({
   );
 }
 
+
+// className="flex flex-grow"
 //truncate
