@@ -11,10 +11,6 @@ export default async function Home({
   const { name, page } = await searchParams;
   const charactersFromAPI = await getCharacters(Number(page) || 1, name);
 
-  console.log(charactersFromAPI);
-
-  console.log('data from api');
-
   return (
     <div>
       <div className='flex justify-center py-5'>
@@ -33,7 +29,7 @@ export default async function Home({
             );
           })
         ) : (
-          <div>No characters with name {name} was found :/</div>
+          <div>No characters with name <b>{name}</b> was found :/</div>
         )
       }
     </div>

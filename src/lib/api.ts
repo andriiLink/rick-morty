@@ -35,7 +35,7 @@ export async function getCharacters(page = 1, name = '', status = ''): Promise<A
 export async function getEpisodes(page = 1): Promise<EpisodeType[] | null> {
   let allEpisodes: EpisodeType[] = [];
   let currentPage: number | null = 1;
-  
+
   while (currentPage !== null) {
     let apiResponse = await fetchData<APIResponseType<EpisodeType>>(`episode/?page=${currentPage}`);
 
@@ -58,7 +58,7 @@ export async function getEpisodes(page = 1): Promise<EpisodeType[] | null> {
 export async function getLocations(page = 1): Promise<LocationType[] | null> {
   let allLocation: LocationType[] = [];
   let currentPage: number | null = 1;
-  
+
   while (currentPage !== null) {
     let apiResponse = await fetchData<APIResponseType<LocationType>>(`location/?page=${currentPage}`);
 
@@ -80,6 +80,11 @@ export async function getLocations(page = 1): Promise<LocationType[] | null> {
 
 export async function getCharacterInfo(id: number): Promise<CharacterType | null> {
   return fetchData<CharacterType>(`character/${id}`);
+};
+
+export async function getMultipleCharactersByIds(ids: string):
+  Promise<CharacterType[] | CharacterType | null> {
+  return fetchData<CharacterType[] | CharacterType>(`character/${ids}`);
 };
 
 export async function getEpisodeInfo(id: number): Promise<EpisodeType | null> {

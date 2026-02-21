@@ -14,14 +14,17 @@ const EpisodeLayout = async ({ children }: Readonly<{ children: React.ReactNode 
   });
 
   return (
-    <div>
-      <ItemSelectorDropdown 
-        itemList={episodeList} 
-        routerDirection='episode'
-        paramName='episodeId'
-        label='Select the episode...'
-      />
-      {children}
+    <div className='flex flex-col md:flex-row min-h-screen w-full gap-6 p-4'>
+      <aside className='w-full md:w-1/3 lg:w-1/4 flex flex-col gap-4'>
+        <ItemSelectorDropdown
+          itemList={episodeList}
+          routerDirection='episode'
+          paramName='episodeId'
+          label='Select the episode...'
+        />
+      </aside>
+
+      <div className='mx-auto'>{children}</div>
     </div>
   );
 };

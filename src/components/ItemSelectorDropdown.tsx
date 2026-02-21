@@ -43,7 +43,7 @@ export const ItemSelectorDropdown = <T extends BaseItem>({
 
   return (
     <div className='
-      border-4 border-blue-500 w-1/4 rounded-xl shrink-0
+      border-4 border-blue-500 w-full rounded-xl shrink-0 md:mt-25
     '>
       <Listbox value={selectedItem} onChange={handleChangeEpisode}>
         <ListboxButton
